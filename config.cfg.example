@@ -1,6 +1,9 @@
 #compress level of zip archiv that contains the files
 ZIP_LEVEL=1
 
+#createinfofile
+CREATEINFOFILE="1"
+
 #version of PIe Board
 PIBOARD=PI$(cat /sys/firmware/devicetree/base/model | cut -d' ' -f 3)
 
@@ -17,6 +20,7 @@ IMAGEPISHRINKPATHFILE=$IMAGEPATH/$IMAGEPISHRINKFILE
 
 #path to pishrink
 PISHRINK="/opt/pishrink.sh"
+PISHRINKPARAMETER="-vrd"
 
 #subfolder for file backups in your backup root folder
 BACKUP_FILES_PFAD=${BACKUP_PFAD}/_files/$(date '+%Y')/$(date '+%Y%m')/${HOSTNAME}_$(date '+%Y%m%d_%H%M%S')
