@@ -1,0 +1,47 @@
+#compress level of zip archiv that contains the files
+ZIP_LEVEL=1
+
+#version of PIe Board
+PIBOARD=PI$(cat /sys/firmware/devicetree/base/model | cut -d' ' -f 3)
+
+#root folder of your backups
+BACKUP_PFAD=/mnt/server/${HOSTNAME}
+
+#subfolder for images in your backup root folder
+IMAGEPATH=${BACKUP_PFAD}/_image
+#image file in image sub folder
+BACKUP_IMAGE_DATUM=$(date +%Y%m%d-%H%M%S)
+IMAGEPATHFILE=$IMAGEPATH/${HOSTNAME}-${BACKUP_IMAGE_DATUM}_$PIBOARD.img
+IMAGEPISHRINKFILE=${HOSTNAME}-${BACKUP_IMAGE_DATUM}_$PIBOARD.pishrink.img
+IMAGEPISHRINKPATHFILE=$IMAGEPATH/$IMAGEPISHRINKFILE
+
+#path to pishrink
+PISHRINK="/opt/pishrink.sh"
+
+#subfolder for file backups in your backup root folder
+BACKUP_FILES_PFAD=${BACKUP_PFAD}/_files/$(date '+%Y')/$(date '+%Y%m')/${HOSTNAME}_$(date '+%Y%m%d_%H%M%S')
+
+#common files
+BACKUP[10]="/boot/config.txt"
+BACKUP[11]="/etc/dhcpcd.conf"
+BACKUP[12]="/etc/fstab"
+BACKUP[13]="/etc/hosts"
+BACKUP[14]="/etc/hostname"
+BACKUP[15]="/etc/localtime"
+BACKUP[16]="/etc/rc.local"
+BACKUP[17]="/etc/resolv.conf"
+BACKUP[17]="/etc/rsyslog.conf"
+BACKUP[18]="/etc/wpa_supplicant/wpa_supplicant.conf"
+BACKUP[19]="/etc/network/interfaces"
+BACKUP[20]="/etc/ssmtp/ssmtp.conf"
+BACKUP[21]="/home/pi/.smbcredentials"
+BACKUP[22]="/var/spool/cron/crontabs/*"
+
+#starwhooper files
+BACKUP[100]="/opt/RPi-status-on-OLED/config.json"
+BACKUP[101]="/opt/RPi-status-on-OLED/wp.jpg"
+
+#special files
+#BACKUP[1000]=""
+#BACKUP[1001]=""
+#BACKUP[1002]=""
