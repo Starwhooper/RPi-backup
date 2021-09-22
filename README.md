@@ -5,9 +5,7 @@ Source: https://github.com/Starwhooper/RPi-status-on-OLED
 
 ## Installation ##
 install all needed packages to prepare the software environtent of your Raspberry Pi:
-```bash
-```
-
+install PiShrink on your system: https://github.com/Drewsif/PiShrink
 and this tool itself:
 ```bash
 cd /opt
@@ -16,7 +14,7 @@ sudo git clone https://github.com/Starwhooper/RPi-backup
 
 ## First configurtion ##
 ```bash
-sudo cp /opt/RPi-backup/config.json.example /opt/RPi-backup/config.json
+sudo cp /opt/RPi-backup/config.cfg.example /opt/RPi-backup/config.cfg
 sudo nano /opt/RPi-backup/config.json
 ```
 
