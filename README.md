@@ -11,6 +11,7 @@ install PiShrink on your system: https://github.com/Drewsif/PiShrink and this to
 ```bash
 cd /opt
 sudo git clone https://github.com/Starwhooper/RPi-backup
+sudo chmod +x /opt/RPi-backup/backup.sh
 ```
 
 First configurtion
