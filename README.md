@@ -17,7 +17,7 @@ First configurtion
 ------------------
 ```bash
 sudo cp /opt/RPi-backup/config.cfg.example /opt/RPi-backup/config.cfg
-sudo nano /opt/RPi-backup/config.json
+sudo nano /opt/RPi-backup/config.cfg
 ```
 
 Start
