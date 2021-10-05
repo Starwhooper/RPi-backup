@@ -1,4 +1,4 @@
-. config.cfg
+#. config.cfg
 
 INFOFILE=${BACKUP_PFAD}/$(date +%Y%m)_info.txt
 echo Datum: $(date +%Y%m%d) > ${INFOFILE}
@@ -35,4 +35,3 @@ echo $(lsb_release --id) >> ${INFOFILE}
 echo $(lsb_release --description) >> ${INFOFILE}
 echo $(lsb_release --release) >> ${INFOFILE}
 echo $(lsb_release --codename) >> ${INFOFILE}
-
