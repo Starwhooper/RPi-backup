@@ -1,13 +1,15 @@
 #!/bin/bash
+verbose=1
 
 if [ ${hostname} ]; then HOSTNAME=$(hostname); fi
 HOSTNAME=${HOSTNAME,,}
 
-. config.cfg
+scriptfolder=$(dirname $0)
+
+. $scriptfolder/config.cfg
 
 parametererror=0
 
-#if [ -s $1 ]
 if  [ $# -gt 1 ] || [ $# -lt 1 ]
 	then parametererror=1
 else
@@ -25,21 +27,27 @@ if [ $parametererror == 1 ]; then
 	echo "--copyfiles, -cf"
 else
 
-
-
 	if [ $1 ]; then
 		if [ $1 == '--createimage' ] || [ $1 == '--createimageandcopyfiles' ] || [ $1 == '-ci' ] || [ $1 == '-cicf' ]; then
 
 			#Bereinigen des apt-get
+			if [[ $verbose == 1 ]]; then echo clean apt-get; fi
 			if which apt-get 2>/dev/null|grep -q apt-get; then
 				apt-get clean
 			fi
 
 			# Backup mit Hilfe von dd erstellen und im angegebenen Pfad speichern
 			mkdir -p $IMAGEPATH
-			dd if=/dev/mmcblk0 of=$IMAGEPATHFILE bs=1MB
+			if [[ $verbose == 1 ]]; then
+				echo create image
+				dd if=/dev/mmcblk0 of=$IMAGEPATHFILE bs=1MB count=10MB status=progress
+			else
+				dd if=/dev/mmcblk0 of=$IMAGEPATHFILE bs=1MB
+			fi
 
 			# Shrinken
+			if [[ $verbose == 1 ]]; then echo start to shrink image; fi
+			if [[ $verbose == 1 ]]; then echo $PISHRINK $PISHRINKPARAMETER $IMAGEPATHFILE $IMAGEPISHRINKPATHFILE; fi
 			$PISHRINK $PISHRINKPARAMETER $IMAGEPATHFILE $IMAGEPISHRINKPATHFILE
 			if [ -f $IMAGEPISHRINKPATHFILE ]; then
 				rm $IMAGEPATHFILE
@@ -50,9 +58,8 @@ else
 		if [ $1 == '--copyfiles' ] || [ $1 == '--createimageandcopyfiles' ] || [ $1 == '-cf' ] || [ $1 == '-cicf' ]; then
 
 			mkdir -p ${BACKUP_FILES_PFAD}
-			for i in "${BACKUP[@]}"
-			do
-			cp --parents $i ${BACKUP_FILES_PFAD}
+			for i in "${BACKUP[@]}"; do
+				cp --parents $i ${BACKUP_FILES_PFAD}
 			done
 
 			cd ${BACKUP_FILES_PFAD}
@@ -62,6 +69,6 @@ else
 	fi
 fi
 
-if [ $CREATEINFOFILE = "1" ]; then
-	. infofile.sh ;
+if [[ $CREATEINFOFILE == '1' ]]; then
+	. $scriptfolder/infofile.sh ;
 fi
