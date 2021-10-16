@@ -7,7 +7,12 @@ RPi-backup
 
 Installation
 ------------
-install PiShrink on your system: https://github.com/Drewsif/PiShrink and this tool itself:
+install PiShrink on your system: 
+```bash
+cd /opt
+sudo git clone https://github.com/Drewsif/PiShrink
+```
+and this tool itself:
 ```bash
 cd /opt
 sudo git clone https://github.com/Starwhooper/RPi-backup
