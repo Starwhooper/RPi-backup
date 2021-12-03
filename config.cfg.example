@@ -1,9 +1,6 @@
 #compress level of zip archiv that contains the files
 ZIP_LEVEL=1
 
-#createinfofile
-CREATEINFOFILE="1"
-
 #version of PIe Board
 PIBOARD=PI$(cat /sys/firmware/devicetree/base/model | cut -d' ' -f 3)
 

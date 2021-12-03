@@ -34,9 +34,11 @@ Its also able to add it in cron via ```sudo crontab -e```, it prevent doublicate
 ```
 
 one of these parameter are needed:
-* --createimageandcopyfiles -cicf
-* --createimage -ci
-* --copyfiles -cf
+* -cf: copy files
+* -ci: create image
+** -ds: shrink image
+* -cl: clean
+* -ct: create infotext
 
 Update
 ------
