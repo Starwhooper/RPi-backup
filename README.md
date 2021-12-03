@@ -36,7 +36,7 @@ Its also able to add it in cron via ```sudo crontab -e```, it prevent doublicate
 one of these parameter are needed:
 * -cf: copy files
 * -ci: create image
-** -ds: shrink image
+  * -ds: shrink image
 * -cl: clean
 * -ct: create infotext
 
