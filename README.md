@@ -9,6 +9,7 @@ Installation
 ------------
 install PiShrink on your system: 
 ```bash
+sudo apt-get install git
 cd /opt
 sudo git clone https://github.com/Drewsif/PiShrink
 ```
