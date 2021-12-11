@@ -37,4 +37,4 @@ echo $(lsb_release --release) >> ${INFOFILE}
 echo $(lsb_release --codename) >> ${INFOFILE}
 
 echo ===BIGGEST FOLDER=== >> ${INFOFILE}
-echo $(sudo du -hsx * | sort -rh | head -10) >> ${INFOFILE}
+echo $(du -hsx /* | sort -rh | head -10) >> ${INFOFILE}
