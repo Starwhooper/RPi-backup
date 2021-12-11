@@ -46,6 +46,11 @@ one of these parameter are needed:
 * -cl: clean
 * -ct: create infotext
 
+as example
+```bash
+sudo /opt/RPi-backup/backup.sh -cf -ci -cl -ct -ds
+```
+
 Update
 ------
 If you already use it, feel free to update with
