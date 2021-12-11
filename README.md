@@ -5,6 +5,12 @@ RPi-backup
 * Source: https://github.com/Starwhooper/RPi-status-on-OLED
 * License: CC-BY-SA-4.0
 
+Prepare your System
+-------------------
+```bash
+sudo apt-get install git zip
+```
+
 Installation
 ------------
 install PiShrink on your system: 
