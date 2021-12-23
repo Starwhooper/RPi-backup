@@ -1,5 +1,7 @@
 #. config.cfg
 
+mkdir -p ${BACKUP_PFAD}
+
 INFOFILE=${BACKUP_PFAD}/$(date +%Y%m)_info.txt
 echo Datum: $(date +%Y%m%d) > ${INFOFILE}
 
